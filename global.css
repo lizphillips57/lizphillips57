@@ -1,0 +1,44 @@
+/*
+
+Liz Phillips
+Global styles
+Last updated: 8/8/2024
+
+*/
+
+body{
+	background-image: linear-gradient(rgba(60, 60, 100, 0.4), rgba(0, 0, 0, 0.6)), url(./images/jwst-deep-field.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	
+	font-family: "Lucida Sans Unicode", sans-serif;
+}
+
+#sitenav ul{
+  list-style-type: none;
+  overflow: hidden;
+  position: fixed;
+  margin: 15px;
+  padding: 0;
+  border-radius: 15px;
+  background-color: #aaaaaa;
+}
+
+#sitenav li{
+	float: left;
+}
+
+#sitenav a{
+	display: block;
+	padding: 1em;
+}
+#sitenav a:hover{
+	background: gray;
+}
+
+
+#main{
+	color: white;
+	padding:3em;
+}

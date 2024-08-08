@@ -6,7 +6,12 @@ Last updated: 8/8/2024
 
 */
 
+/* 
+BODY 
+*/
+
 body{
+	/* Background image with gradient on top */
 	background-image: linear-gradient(rgba(60, 60, 100, 0.4), rgba(0, 0, 0, 0.6)), url(./images/jwst-deep-field.png);
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -15,10 +20,16 @@ body{
 	font-family: "Lucida Sans Unicode", sans-serif;
 }
 
+/*
+NAVIGATION
+*/
+
 #sitenav ul{
+	/* The entire navigation bar */
   list-style-type: none;
   overflow: hidden;
   position: fixed;
+  right: 0px;
   margin: 15px;
   padding: 0;
   border-radius: 15px;
@@ -26,19 +37,52 @@ body{
 }
 
 #sitenav li{
-	float: left;
+	/* Text inside the button right-aligned */
+	text-align:right;
 }
 
 #sitenav a{
+	/* The button is the actual link itself */
 	display: block;
 	padding: 1em;
 }
 #sitenav a:hover{
+	/* Change background color when hovering on all links in the navbar*/
 	background: gray;
 }
 
+#dropdown {
+	/* This element contains the dropdown-button and the dropdown-menu */
+	position: relative;
+	display: block;
+}
+#dropdown-menu{
+	/* The dropdown menu */
+  display: none;
+  z-index: 1;
+  /*position: absolute;*/
+}
+#dropdown-menu ul{
+	/* similar to the root ul, overriding certain things */
+	list-style-type: none;
+	overflow: hidden;
+	position: relative;
+	right: 0px;
+	margin: 0;
+	padding: 0;
+	border-radius: 0;
+	background-color: #aaaaaa;
+}
+#dropdown:hover #dropdown-menu{
+	/* To show the rest of the menu */
+	display: block;
+}
+
+/*
+MAIN*/
 
 #main{
+	/* Main content of the page: NOT a header or nav bar, etc. */
 	color: white;
 	padding:3em;
 }

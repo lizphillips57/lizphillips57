@@ -12,7 +12,11 @@ BODY
 
 body{
 	/* Background image with gradient on top */
-	background-image: linear-gradient(rgba(60, 60, 100, 0.4), rgba(0, 0, 0, 0.6)), url(./images/jwst-deep-field.png);
+	background-image: 
+		linear-gradient(
+			/*  blue-gray ........ and black */
+			rgba(60, 60, 100, 0.6), rgba(0, 0, 0, 0.8)), 
+		url(./images/jwst-deep-field.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
@@ -79,10 +83,15 @@ NAVIGATION
 }
 
 /*
-MAIN*/
+MAIN
+*/
 
 #main{
 	/* Main content of the page: NOT a header or nav bar, etc. */
 	color: white;
 	padding:3em;
+}
+
+.gallery-content{
+	text-align: center;
 }

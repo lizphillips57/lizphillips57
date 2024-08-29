@@ -11,7 +11,7 @@ function windowResized(){
 }
 
 function preload(){
-  rubik = loadFont("RubikMonoOne-Regular.ttf");
+  rubik = loadFont("/fonts/RubikMonoOne-Regular.ttf");
 }
 
 function setup() {

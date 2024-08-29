@@ -2,7 +2,7 @@
 
 Liz Phillips
 Global styles
-Last updated: 8/8/2024
+Last updated: 8/28/2024
 
 */
 
@@ -20,7 +20,9 @@ body{
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
-	
+
+	margin: 0;
+
 	font-family: "Lucida Sans Unicode", sans-serif;
 }
 
@@ -30,14 +32,14 @@ NAVIGATION
 
 #sitenav ul{
 	/* The entire navigation bar */
-  list-style-type: none;
-  overflow: hidden;
-  position: fixed;
-  right: 0px;
-  margin: 15px;
-  padding: 0;
-  border-radius: 15px;
-  background-color: #aaaaaa;
+	list-style-type: none;
+	overflow: hidden;
+	position: fixed;
+	right: 0px;
+	margin: 15px;
+	padding: 0;
+	border-radius: 15px;
+	background-color: #aaaaaa;
 }
 
 #sitenav li{
@@ -62,9 +64,9 @@ NAVIGATION
 }
 #dropdown-menu{
 	/* The dropdown menu */
-  display: none;
-  z-index: 1;
-  /*position: absolute;*/
+	display: none;
+	z-index: 1;
+	/*position: absolute;*/
 }
 #dropdown-menu ul{
 	/* similar to the root ul, overriding certain things */
@@ -83,6 +85,21 @@ NAVIGATION
 }
 
 /*
+CANVAS
+*/
+
+#canvas-container{
+	position: sticky;
+	top: 0;
+	z-index: -1;
+}
+
+canvas {
+	display: block;
+}
+
+
+/*
 MAIN
 */
 
@@ -90,6 +107,7 @@ MAIN
 	/* Main content of the page: NOT a header or nav bar, etc. */
 	color: white;
 	padding:3em;
+	background:black;
 }
 
 .gallery-content{

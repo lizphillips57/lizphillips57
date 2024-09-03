@@ -2,7 +2,7 @@
 
 Liz Phillips
 Global styles
-Last updated: 8/28/2024
+Last updated: 9/3/2024
 
 */
 
@@ -14,14 +14,14 @@ body{
 	/* Background image with gradient on top */
 	background-image: 
 		linear-gradient(
-			/*  blue-gray ........ and black */
+			/*  blue-gray and black */
 			rgba(60, 60, 100, 0.6), rgba(0, 0, 0, 0.8)), 
 		url(./images/jwst-deep-field.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
 
-	margin: 0;
+    margin: 0;
 
 	font-family: "Lucida Sans Unicode", sans-serif;
 }
@@ -110,6 +110,54 @@ MAIN
 	background:black;
 }
 
-.gallery-content{
-	text-align: center;
+/*
+
+GALLERY
+
+Flexbox demo:
+https://codepen.io/enxaneta/full/adLPwv/
+
+*/
+
+.gallery {
+/*   border: 1px solid white; */
+  padding: 0px !important;
+  height: 100vh;
+  
+  /* Flexbox settings... so difficult */
+  display: block flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-content: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  
+  /* Scroll horizontally */
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.gallery-item {
+  /* These divs contain each gallery image. */
+/*   outline: 2px dashed red; */
+  padding: 0px;
+  height: 50%; /* Ensures two pics per column */
+  width: auto; /* Keep aspect ratio */
+
+  overflow:hidden;  
+}
+
+.gallery-item:hover > img{
+  /* Zoom effect on hover */
+  transform: scale(1.1);
+  overflow:hidden;
+}
+
+.gallery-item img {
+  /* Resize image to fit into its div */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+  transition: transform 0.3s ease; /* Putting it here makes sure the reverse animation plays */
 }

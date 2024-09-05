@@ -15,8 +15,7 @@ body{
 	background-image: 
 		linear-gradient(
 			/*  blue-gray and black */
-			rgba(60, 60, 100, 0.6), rgba(0, 0, 0, 0.8)), 
-		url(./images/jwst-deep-field.png);
+			rgba(60, 60, 100, 0.6), rgba(0, 0, 0, 0.8));
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
@@ -34,7 +33,6 @@ NAVIGATION
 	/* The entire navigation bar */
 	list-style-type: none;
 	overflow: hidden;
-	position: fixed;
     width: 100%;
 	margin: 0;
 	padding: 0;
@@ -92,8 +90,6 @@ CANVAS
 */
 
 #canvas-container{
-	position: sticky;
-	top: 0;
 	z-index: -1;
 }
 

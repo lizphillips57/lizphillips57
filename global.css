@@ -2,7 +2,7 @@
 
 Liz Phillips
 Global styles
-Last updated: 9/3/2024
+Last updated: 9/5/2024
 
 */
 
@@ -35,30 +35,33 @@ NAVIGATION
 	list-style-type: none;
 	overflow: hidden;
 	position: fixed;
-	right: 0px;
-	margin: 15px;
+    width: 100%;
+	margin: 0;
 	padding: 0;
-	border-radius: 15px;
 	background-color: #aaaaaa;
 }
 
 #sitenav li{
-	/* Text inside the button right-aligned */
-	text-align:right;
+    float:left;
 }
 
 #sitenav a{
 	/* The button is the actual link itself */
 	display: block;
 	padding: 1em;
+    text-align: center;
+    text-decoration:none;
+    color: black;
 }
 #sitenav a:hover{
 	/* Change background color when hovering on all links in the navbar*/
+    color: white;
 	background: gray;
 }
 
+
 #dropdown {
-	/* This element contains the dropdown-button and the dropdown-menu */
+	/* This element contains the dropdown "button" and the dropdown-menu */
 	position: relative;
 	display: block;
 }
@@ -147,7 +150,7 @@ https://codepen.io/enxaneta/full/adLPwv/
   overflow:hidden;  
 }
 
-.gallery-item:hover > img{
+.gallery-item a:hover > img{
   /* Zoom effect on hover */
   transform: scale(1.1);
   overflow:hidden;

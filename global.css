@@ -6,23 +6,31 @@ Last updated: 9/5/2024
 
 */
 
+@font-face {
+	font-family: handjet;
+	src: url(/fonts/handjet.ttf);
+ }
+ @font-face {
+	font-family: quicksand;
+	src: url(/fonts/quicksand.ttf);
+ }
+@font-face {
+	font-family: rubikmono;
+	src: url(/fonts/RubikMonoOne-Regular.ttf);
+}
+
 /* 
 BODY 
 */
 
 body{
 	/* Background image with gradient on top */
-	background-image: 
-		linear-gradient(
-			/*  blue-gray and black */
-			rgba(60, 60, 100, 0.6), rgba(0, 0, 0, 0.8));
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
+	
+	background:black;
 
     margin: 0;
 
-	font-family: "Lucida Sans Unicode", sans-serif;
+	font-family: quicksand, "Lucida Sans Unicode", sans-serif;
 }
 
 /*
@@ -36,7 +44,7 @@ NAVIGATION
     width: 100%;
 	margin: 0;
 	padding: 0;
-	background-color: #aaaaaa;
+	background-color: #474b4f;
 }
 
 #sitenav li{
@@ -49,12 +57,12 @@ NAVIGATION
 	padding: 1em;
     text-align: center;
     text-decoration:none;
-    color: black;
+    color: #bec5c9;
 }
 #sitenav a:hover{
 	/* Change background color when hovering on all links in the navbar*/
     color: white;
-	background: gray;
+	background: #61892f;
 }
 
 
@@ -86,19 +94,6 @@ NAVIGATION
 }
 
 /*
-CANVAS
-*/
-
-#canvas-container{
-	z-index: -1;
-}
-
-canvas {
-	display: block;
-}
-
-
-/*
 MAIN
 */
 
@@ -106,7 +101,30 @@ MAIN
 	/* Main content of the page: NOT a header or nav bar, etc. */
 	color: white;
 	padding:3em;
-	background:black;
+	/* background:black; */
+	background-image: 
+		linear-gradient(
+			/*  blue-gray and black */
+			#222629, #474b4f);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+h1{
+	color:#86c323;
+	text-shadow: 0px 6px black;
+	font-family: handjet;
+	font-size: 4em;	
+}
+
+#main a{
+	color:#86c323;
+}
+
+#main img{
+	width:100%;
+	height:auto;
 }
 
 /*
@@ -159,4 +177,16 @@ https://codepen.io/enxaneta/full/adLPwv/
   object-fit: cover;
   
   transition: transform 0.3s ease; /* Putting it here makes sure the reverse animation plays */
+}
+
+/*
+CANVAS
+*/
+
+#canvas-container{
+	z-index: -1;
+}
+
+canvas {
+	display: block;
 }

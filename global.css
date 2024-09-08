@@ -112,6 +112,7 @@ MAIN
 }
 
 h1{
+	margin: inherit;
 	color:#86c323;
 	text-shadow: 0px 6px black;
 	font-family: handjet;
@@ -154,47 +155,44 @@ https://codepen.io/enxaneta/full/adLPwv/
 */
 
 .gallery {
-/*   border: 1px solid white; */
-  padding: 0px !important;
-  height: 100vh;
-  
-  /* Flexbox settings... so difficult */
-  display: block flex;
-  flex-direction: column;
-  align-items: stretch;
-  align-content: stretch;
-  justify-content: center;
-  flex-wrap: wrap;
-  
-  /* Scroll horizontally */
-  overflow-x: auto;
-  overflow-y: hidden;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .gallery-item {
   /* These divs contain each gallery image. */
-/*   outline: 2px dashed red; */
-  padding: 0px;
-  height: 50%; /* Ensures two pics per column */
-  width: auto; /* Keep aspect ratio */
+height: 40vh;
+flex-grow: 1;
 
   overflow:hidden;  
 }
-
-.gallery-item a:hover > img{
-  /* Zoom effect on hover */
-  transform: scale(1.1);
-  overflow:hidden;
-}
+/* For tall screens */
+@media (max-aspect-ratio: 1/1) {
+	.gallery-item{
+	  height: 30vh; /* Make images smaller */
+	}
+  }
+/* For wide screens */
+@media (max-height: 480px) {
+	.gallery-item{
+	  height: 80vh; /* Make images bigger! */
+	}
+  }
 
 .gallery-item img {
   /* Resize image to fit into its div */
-  width: 100%;
-  height: 100%;
+  max-height: 100%;
+  min-width: 100%;
   object-fit: cover;
   
   transition: transform 0.3s ease; /* Putting it here makes sure the reverse animation plays */
 }
+.gallery-item a:hover > img{
+	/* Zoom effect on hover */
+	transform: scale(1.1);
+	overflow:hidden;
+  }
+
 
 /*
 CANVAS

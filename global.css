@@ -127,6 +127,23 @@ h1{
 	height:auto;
 }
 
+#back-button{
+	border:1px solid #61892f;
+	border-radius: 20px;
+	background: none;
+	color: #61892f;
+	font-family: inherit;
+
+	padding: 1em;
+	margin: 1em 0;
+
+	transition: 0.2s;
+}
+#back-button:hover{
+	background: #61892f;
+	color: white;
+}
+
 /*
 
 GALLERY

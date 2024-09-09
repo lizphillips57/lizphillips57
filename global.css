@@ -65,34 +65,6 @@ NAVIGATION
 	background: #61892f;
 }
 
-
-#dropdown {
-	/* This element contains the dropdown "button" and the dropdown-menu */
-	position: relative;
-	display: block;
-}
-#dropdown-menu{
-	/* The dropdown menu */
-	display: none;
-	z-index: 1;
-	/*position: absolute;*/
-}
-#dropdown-menu ul{
-	/* similar to the root ul, overriding certain things */
-	list-style-type: none;
-	overflow: hidden;
-	position: relative;
-	right: 0px;
-	margin: 0;
-	padding: 0;
-	border-radius: 0;
-	background-color: #aaaaaa;
-}
-#dropdown:hover #dropdown-menu{
-	/* To show the rest of the menu */
-	display: block;
-}
-
 /*
 MAIN
 */

@@ -26,11 +26,31 @@
             <!-- MAIN CONTAINER -->
 			<div id="main">
                 <button id="back-button" type="button" onclick="history.back()">&laquo; Back to Gallery</button>
-                <img src="/images/smallworlds1.png">
+                
+                <!-- SLIDESHOW -->
+				<div class="slideshow">
+					<div class="slideshow-item">
+						<img src="/images/smallworlds1.png">
+					</div>
+					<div class="slideshow-item">
+						<img src="/images/smallworlds2.png">
+					</div>
+                    <div class="slideshow-item">
+						<img src="/images/smallworlds3.png">
+					</div>
+                    <div class="slideshow-item">
+						<img src="/images/smallworlds4.png">
+					</div>
+
+					<!-- Arrow buttons -->
+					<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+					<a class="next" onclick="plusSlides(1)">&#10095;</a>
+				</div> <!-- End slideshow -->
             
                 <h1>Small Worlds</h1>
                 <p>An interactive audio-visual projection mapping. Taking inspiration from the abstract geometric shapes of Kandinsky's "Small Worlds IV", each component of the sculpture reacts to sound and music in a different way. The colors, shapes, and textures move with the rhythm, with some parts representing bass frequencies and other representing high frequencies. The 3D printed components were modeled in Fusion 360, and the visuals are created with TouchDesigner.</p> 
               
           </div> <!-- End #main -->
+          <script src="slideshow.js"></script>
 	</body>
 </html>

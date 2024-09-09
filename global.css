@@ -100,7 +100,7 @@ MAIN
 #main{
 	/* Main content of the page: NOT a header or nav bar, etc. */
 	color: white;
-	padding:3em;
+	padding: 7vw;
 	/* background:black; */
 	background-image: 
 		linear-gradient(
@@ -138,6 +138,7 @@ h1{
 	padding: 1em;
 	margin: 1em 0;
 
+	cursor: pointer;
 	transition: 0.2s;
 }
 #back-button:hover{
@@ -192,6 +193,70 @@ flex-grow: 1;
 	transform: scale(1.1);
 	overflow:hidden;
   }
+
+/*
+SLIDESHOW
+*/
+
+.slideshow{
+	display: flex;
+	justify-content: center;
+	margin: auto;
+	position: relative;
+	height: 60vh;
+	width: 65%;
+	overflow: hidden;
+
+	background: rgba(0, 0, 0, 0.3);
+	border-radius: 15px;
+	padding: 1em;
+	
+}
+/* For tall screens */
+@media (max-aspect-ratio: 1/1) {
+	.slideshow{
+	  height: 40vh; /* Make slideshow smaller */
+	  width: auto;
+	}
+}
+
+.slideshow-item{
+	display: none;
+	/* min-width: 100%; */
+    height: 100%;
+}
+
+.slideshow-item img{
+	/* width: 100%; */
+    /* height: 100%; */
+    object-fit: contain;
+	border-radius: 5px;
+
+}
+
+.prev, .next {
+  	position: absolute;
+	top:calc(50% - 1em);
+	padding: 0.5em;
+	border-radius: 15px;
+
+  	font-weight: bold;
+  	font-size: 2em;
+
+  	cursor: pointer;
+  	user-select: none;
+	transition: 0.6s ease;
+}
+.prev:hover, .next:hover{
+	background: rgb(0,0,0,0.3);
+}
+.prev{
+	left: 1vw;
+}
+.next {
+	right: 1vw;
+}
+
 
 
 /*

@@ -58,11 +58,17 @@ NAVIGATION
     text-align: center;
     text-decoration:none;
     color: #bec5c9;
+
+	transition: 0.2s ease;
 }
 #sitenav a:hover{
 	/* Change background color when hovering on all links in the navbar*/
     color: white;
 	background: #61892f;
+}
+#sitenav a.active{
+	font-weight: bold;
+	text-shadow: 0px 0px 5px #86c323;
 }
 
 /*
@@ -91,7 +97,7 @@ h1{
 	font-size: 4em;	
 }
 h2{
-	color: #ec9eff;
+	color: #bec5c9;
 	font-family:handjet, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 h3{

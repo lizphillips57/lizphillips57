@@ -2,7 +2,7 @@
 
 Liz Phillips
 Global styles
-Last updated: 9/5/2024
+Last updated: 9/8/2024
 
 */
 
@@ -99,9 +99,12 @@ h1{
 h2{
 	color: #bec5c9;
 	font-family:handjet, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: 200;
+	font-size: 2em;
 }
 h3{
 	font-style: italic;
+	font-weight: normal;
 	color: #bec5c9;
 }
 .subtitle{

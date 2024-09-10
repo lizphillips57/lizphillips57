@@ -1,13 +1,21 @@
+/*
+Liz Phillips
+Newton's Cradle wordmark
+Last modified: 9/10/24
+
+*/
+
 var canvas;
 let rubik;
+let centerX, centerY, ballRadius;
 
 let currentlyDragging = null;
 let words = [];
-
+let threads = [];
 
 function windowResized(){
   // Keep the canvas the same width as the window
-  resizeCanvas(windowWidth, 400);
+  resizeCanvas(windowWidth, 200);
 }
 
 function preload(){
@@ -15,62 +23,63 @@ function preload(){
 }
 
 function setup() {
-  canvas = createCanvas(windowWidth, 400);
+  canvas = createCanvas(windowWidth, 200);
   canvas.parent("canvas-container");
-  
   colorMode(HSL, 360, 100, 100, 100);
+  textAlign(CENTER, CENTER);
   
-  words.push(new DraggableWord('L', 100, 100));
-  words.push(new DraggableWord('I', 175, 100));
-  words.push(new DraggableWord('Z', 250, 100));
+  centerX = width/2;
+  centerY = height/2;
+  ballRadius = (width * 2/3) / 8;
   
-  words.push(new DraggableWord('P', 100, 200));
-  words.push(new DraggableWord('H', 175, 200));
-  words.push(new DraggableWord('I', 250, 200));
-  words.push(new DraggableWord('L', 325, 200));
-  words.push(new DraggableWord('L', 400, 200));
-  words.push(new DraggableWord('I', 475, 200));
-  words.push(new DraggableWord('P', 550, 200));
-  words.push(new DraggableWord('S', 625, 200));
+  words.push(new DraggableWord('L', centerX-ballRadius, centerY));
+  words.push(new DraggableWord('I', centerX, centerY));
+  words.push(new DraggableWord('Z', centerX+ballRadius, centerY));
+  
+  for (let w of words){
+    threads.push(new Thread(w.x, w.y));
+  }
+  
+  // words.push(new DraggableWord('P', 100, 200));
+  // words.push(new DraggableWord('H', 175, 200));
+  // words.push(new DraggableWord('I', 250, 200));
+  // words.push(new DraggableWord('L', 325, 200));
+  // words.push(new DraggableWord('L', 400, 200));
+  // words.push(new DraggableWord('I', 475, 200));
+  // words.push(new DraggableWord('P', 550, 200));
+  // words.push(new DraggableWord('S', 625, 200));
 
 }
 
+/*
+
+DRAW
+
+*/
+
 function draw() {
-  
-  // Makes trails fade
-  // erase(5);
-  // rect(0,0,width,height);
-  // noErase();
-  
-  //background(5);
-  //clear();
+  background(20);
   noStroke();
-  //fill(100);
-  textSize(32);
+  textSize(ballRadius/2);
   textFont(rubik);
   
-  //circle(width / 2, height / 2, 50);
+  for (let t of threads){
+    t.display();
+  }
   
   for (let word of words) {
     word.display();
+    
+    stroke(0);
+    point(word.x, word.y);
+    noStroke();
   }
-  
-  // Makes text not fuzzy  
-  erase();
-  rect(0, height-15, 80, height-15);
-  noErase();
-  
-  push();
-  textSize(15);
-  textFont("Helvetica");
-  text("Clear trails", 0, height);
-  pop();
 }
 
 /*
 
 
-BUILT-IN FUNCTIONS
+MOUSE EVENTS
 
 
 */
@@ -100,11 +109,6 @@ function mousePressed() {
   if (outsideCounter == words.length && mouseX <= width && mouseY <= height){
     // the mouse is not over ANY words!
     //clear();
-  }
-  
-  if (mouseX < 80 && mouseX > 0 && mouseY < height && mouseY > height-15){
-    // Clear trails
-    clear();
   }
   
 }
@@ -143,17 +147,13 @@ class DraggableWord {
   
   display() {
     
-    this.textCenterX = textWidth(this.word) /2;
-    this.textCenterY = textAscent() /2;
-    
     // Draw a circle    
     fill(100, 50, 60);
     if (this.dragging){ // change color if dragging it!
-      let h = random(200, 300);
-      fill(h,50,60,20);
+      fill(250,50,60);
     }
     
-    circle(this.x + this.textCenterX, this.y - this.textCenterY, 50);
+    circle(this.x, this.y, ballRadius);
     
     // Draw the text
     fill(100);
@@ -162,15 +162,12 @@ class DraggableWord {
   }
   
   isMouseOver() {
-    // Detects if the mouse is within the bounding box of the word.
-    let textWidthSize = textWidth(this.word);
-    let textHeightSize = textAscent();
+    // Detects if the mouse is within the circle
+    let mouse = createVector(mouseX, mouseY);
+    let ballCenter = createVector(this.x, this.y);
+    let distance = mouse.dist(ballCenter);
     
-    // The below will return a boolean. True if all the conditions are met.
-    return (mouseX >= this.x && 
-            mouseX <= this.x + textWidthSize &&
-            mouseY >= this.y - textHeightSize && 
-            mouseY <= this.y);
+    return distance<ballRadius;
   }
   
   startDrag() {
@@ -186,14 +183,37 @@ class DraggableWord {
   drag() {
     if (this.dragging) {
       // Change the word's position to match the mouse's position.
-      // Make sure to account for the offset!
-      this.x = mouseX - this.offsetX;
-      this.y = mouseY - this.offsetY;
+      // Make sure to account for the offset (where you clicked)
+
+      if(mouseX<0){ this.x = -this.offsetX;}
+      else if(mouseX>width){ this.x = width-this.offsetX;}
+      else{ this.x = mouseX - this.offsetX;}
+      
+      if(mouseY<0){ this.y = -this.offsetY;}
+      else if(mouseY>height){ this.y = height-this.offsetY;}
+      else{ this.y = mouseY - this.offsetY;}
+      
+      
     }
   }
   
   stopDrag() {
     // Update dragging status
     this.dragging = false;
+  }
+}
+
+class Thread{
+  constructor(x, y){
+    this.bottomX = x;
+    this.bottomY = y;
+    this.topX = x;
+    this.topY = y-70;
+  }
+  display(){
+    push();
+    stroke(100);
+    line(this.bottomX, this.bottomY, this.topX, this.topY);
+    pop();
   }
 }

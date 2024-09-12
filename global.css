@@ -2,7 +2,7 @@
 
 Liz Phillips
 Global styles
-Last updated: 9/8/2024
+Last updated: 9/12/2024
 
 */
 
@@ -24,13 +24,11 @@ BODY
 */
 
 body{
-	/* Background image with gradient on top */
 	
 	background:black;
-
-    margin: 0;
-
+    	margin: 0;
 	font-family: quicksand, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 2vw;
 }
 
 /*
@@ -41,29 +39,29 @@ NAVIGATION
 	/* The entire navigation bar */
 	list-style-type: none;
 	overflow: hidden;
-    width: 100%;
+    	width: 100%;
 	margin: 0;
 	padding: 0;
 	background-color: #474b4f;
 }
 
 #sitenav li{
-    float:left;
+    	float:left;
 }
 
 #sitenav a{
 	/* The button is the actual link itself */
 	display: block;
 	padding: 1em;
-    text-align: center;
-    text-decoration:none;
-    color: #bec5c9;
+    	text-align: center;
+    	text-decoration:none;
+    	color: #bec5c9;
 
 	transition: 0.2s ease;
 }
 #sitenav a:hover{
 	/* Change background color when hovering on all links in the navbar*/
-    color: white;
+    	color: white;
 	background: #61892f;
 }
 #sitenav a.active{
